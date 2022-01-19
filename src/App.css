@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App-logo {
@@ -14,18 +15,23 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #272559;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: whitesmoke;
+}
+
+.App-form {
+  background-color: #272559;
+  padding: 20px;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #c9dff2;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +41,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.toDo {
+  background-color: whitesmoke;
+  color: #00040d;
+  border-radius: 5%;
+  box-shadow: 10px 10px 5px black;
+  font-size: large;
+  flex-wrap: wrap;
+  height: 150px;
+  width: 150px;
+  padding: 20px;
+  margin: 20px;
+}
+
+#faTrash {
+  display: block;
+  float: right;
+  height: 2.2vh;
+}
+
+#faPencilAlt {
+  display: block;
+  float: right;
+  height: 8vmin;
+}
+
+#faCircle {
+  display: block;
+  float: left;
+  height: 2.2vh;
+}
+
+#faCircle:hover {
+  color: #27a147;
+  cursor: pointer;
+}
+
+#faCheckCircle {
+  display: block;
+  float: left;
+  height: 2.2vh;
+  color: #27a147;
+}
+
+#faCheckCircle:hover {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon:hover {
+  color: #f2b705;
+  cursor: pointer;
 }
