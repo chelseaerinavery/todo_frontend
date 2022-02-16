@@ -69,6 +69,10 @@ button {
   font-size: 14px;
 }
 
+#cancel {
+  color: red;
+}
+
 #add {
   position: fixed;
   align-self: baseline;
@@ -83,6 +87,10 @@ button {
   padding-right: 13px;
   padding-top: 0px;
   padding-bottom: 3px;
+}
+
+#add:hover {
+  cursor: pointer;
 }
 
 .App-link {
