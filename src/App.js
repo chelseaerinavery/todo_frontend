@@ -68,63 +68,61 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h2>To-Do:</h2>
-        <div className="flex">
-          {todoData &&
-            todoData.map((toDo) => {
-              return (
-                <div className="toDo">
-                  <FontAwesomeIcon
-                    id="faTrash"
-                    className="icon"
-                    icon={faTrash}
-                    onClick={() => deleteTodo(toDo.id)}
-                  />
-                  <FontAwesomeIcon
-                    id={toDo.completed ? "faCheckCircle" : "faCircle"}
-                    className="icon"
-                    icon={toDo.completed ? faCheckCircle : faCircle}
-                    onClick={() => completeTodo(toDo.id, !toDo.completed)}
-                  />
-                  {/* in p tag below -- Ensure if green text, green check and circle */}
-                  <p
-                    style={
-                      toDo.completed
-                        ? { color: "#27a147" }
-                        : { color: "#D91414" }
-                    }
-                  >
-                    {/* Style h4 object manually vs having in header tag */}
-
-                    <h4>{toDo.name}</h4>
-                  </p>{" "}
-                  <p>{toDo.description}</p>
-                  <FontAwesomeIcon
-                    id="faPencilAlt"
-                    className="icon"
-                    icon={faPencilAlt}
-                    // onClick={() => deleteTodo(toDo.id)}
-                  />
-                </div>
-              );
-            })}
-        </div>
+        <button id="add">+</button>
       </header>
+      <form className="App-form" onSubmit={handleSubmit}>
+        <p>Title:</p>
+        <input
+          value={formData.name}
+          type="text"
+          name="name"
+          onChange={handleChange}
+        ></input>
+        <p>Decription:</p>
+        <textarea
+          value={formData.description}
+          onChange={handleChange}
+          name="description"
+        ></textarea>
+        <button type="submit">Add</button>
+      </form>
+      <div className="flex">
+        {todoData &&
+          todoData.map((toDo) => {
+            return (
+              <div className="toDo">
+                <FontAwesomeIcon
+                  id="faTrash"
+                  className="icon"
+                  icon={faTrash}
+                  onClick={() => deleteTodo(toDo.id)}
+                />
+                <FontAwesomeIcon
+                  id={toDo.completed ? "faCheckCircle" : "faCircle"}
+                  className="icon"
+                  icon={toDo.completed ? faCheckCircle : faCircle}
+                  onClick={() => completeTodo(toDo.id, !toDo.completed)}
+                />
+                {/* in p tag below -- Ensure if green text, green check and circle */}
+                <p
+                  style={
+                    toDo.completed ? { color: "#27a147" } : { color: "#D91414" }
+                  }
+                >
+                  {/* Style h4 object manually vs having in header tag */}
 
-      <div className="App-form">
-        <form onSubmit={handleSubmit}>
-          <input
-            value={formData.name}
-            type="text"
-            name="name"
-            onChange={handleChange}
-          ></input>
-          <textarea
-            value={formData.description}
-            onChange={handleChange}
-            name="description"
-          ></textarea>
-          <button type="submit">Create To-Do</button>
-        </form>
+                  <h4>{toDo.name}</h4>
+                </p>{" "}
+                <p>{toDo.description}</p>
+                <FontAwesomeIcon
+                  id="faPencilAlt"
+                  className="icon"
+                  icon={faPencilAlt}
+                  // onClick={() => deleteTodo(toDo.id)}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );

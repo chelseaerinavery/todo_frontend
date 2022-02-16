@@ -1,6 +1,14 @@
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
 .App {
   text-align: center;
   font-family: "Montserrat", sans-serif;
+  background-color: #272559;
 }
 
 .App-logo {
@@ -15,19 +23,66 @@
 }
 
 .App-header {
-  background-color: #272559;
-  min-height: 100vh;
+  background-color: #f2b705;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: whitesmoke;
+  font-family: "Permanent Marker", cursive;
+  color: #272559;
 }
 
 .App-form {
   background-color: #272559;
+  box-shadow: 10px 10px 5px black;
+  border-radius: 5%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.App-form > p {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  margin: 5px;
+  align-self: baseline;
+}
+
+input,
+textarea {
+  min-width: 33%;
+  margin: 10px;
+}
+
+button {
+  font-family: "Permanent Marker", cursive;
+  background-color: #f2b705;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: -1px 0 8px -5px #000000;
+  font-size: 14px;
+}
+
+#add {
+  position: fixed;
+  align-self: baseline;
+  border-radius: 100%;
+  margin: 10px;
+  background-color: white;
+  border: 3px solid #272559;
+  font-family: regular monospace;
+  color: #272559;
+  font-size: 40px;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 0px;
+  padding-bottom: 3px;
 }
 
 .App-link {
@@ -91,8 +146,10 @@
 }
 
 .flex {
+  background-color: #272559;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .icon:hover {
