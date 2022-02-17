@@ -5,6 +5,12 @@ body,
   height: 100%;
 }
 
+h4 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
   font-family: "Montserrat", sans-serif;

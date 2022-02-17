@@ -24,7 +24,7 @@ function App() {
   const getToDos = async () => {
     const response = await fetch(`${API_ENDPOINT}/todo`);
     var newTodos = await response.json();
-    setTodoData(newTodos);
+    setTodoData(newTodos.rows);
   };
 
   const handleSubmit = async (values) => {
@@ -129,7 +129,7 @@ function App() {
                 >
                   {/* Style h4 object manually vs having in header tag */}
 
-                  <h4>{toDo.name}</h4>
+                  <h4 title={toDo.name}>{toDo.name}</h4>
                 </p>{" "}
                 <p>{toDo.description}</p>
                 <FontAwesomeIcon
