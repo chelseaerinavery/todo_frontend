@@ -91,7 +91,7 @@ function App() {
             name="name"
             onChange={handleChange}
           ></input>
-          <p>Decription:</p>
+          <p>Description:</p>
           <textarea
             value={formData.description}
             onChange={handleChange}
