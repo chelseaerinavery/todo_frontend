@@ -131,7 +131,9 @@ function App() {
 
                   <h4 title={toDo.name}>{toDo.name}</h4>
                 </p>{" "}
-                <p>{toDo.description}</p>
+                <div className="scroll">
+                  <p className="scroll">{toDo.description}</p>
+                </div>
                 <FontAwesomeIcon
                   id="faPencilAlt"
                   className="icon"

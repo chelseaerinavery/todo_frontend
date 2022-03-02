@@ -9,6 +9,11 @@ h4 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin: 2px;
+}
+
+p {
+  margin: 2px;
 }
 
 .App {
@@ -123,6 +128,7 @@ button {
   width: 150px;
   padding: 20px;
   margin: 20px;
+  position: relative;
 }
 
 #faTrash {
@@ -135,6 +141,9 @@ button {
   display: block;
   float: right;
   height: 8vmin;
+  position: absolute;
+  top: 140px;
+  left: 16px;
 }
 
 #faCircle {
@@ -169,4 +178,9 @@ button {
 .icon:hover {
   color: #f2b705;
   cursor: pointer;
+}
+
+.scroll {
+  overflow-y: auto;
+  height: 90%;
 }
