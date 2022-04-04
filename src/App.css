@@ -10,10 +10,12 @@ h4 {
   white-space: nowrap;
   overflow: hidden;
   margin: 2px;
+  padding: 5px;
 }
 
 p {
   margin: 2px;
+  padding: 2px;
 }
 
 .App {
