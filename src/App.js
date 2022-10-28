@@ -75,11 +75,11 @@ function App() {
 
   return (
     <div className="App">
+      <button id="add" onClick={() => modalDisplay(true)}>
+        +
+      </button>
       <header className="App-header">
-        <h2>To-Do:</h2>
-        <button id="add" onClick={() => modalDisplay(true)}>
-          +
-        </button>
+        <h1 id="header-title">To-Do:</h1>
       </header>
 
       {modalVisible && (
@@ -90,17 +90,19 @@ function App() {
             type="text"
             name="name"
             onChange={handleChange}
+            id="input-title"
           ></input>
-          <p>Description:</p>
+          <p>Notes:</p>
           <textarea
             value={formData.description}
             onChange={handleChange}
             name="description"
+            maxlength="250"
           ></textarea>
-          <button id="cancel" onClick={() => modalDisplay(false)}>
-            Cancel
-          </button>
-          <button type="submit">Submit</button>
+          <div className="horizontal-button-pair">
+            <button onClick={() => modalDisplay(false)}>Cancel</button>
+            <button type="submit">Submit</button>
+          </div>
         </form>
       )}
 
@@ -122,17 +124,19 @@ function App() {
                   onClick={() => completeTodo(toDo.id, !toDo.completed)}
                 />
                 {/* in p tag below -- Ensure if green text, green check and circle */}
-                <p
-                  style={
-                    toDo.completed ? { color: "#27a147" } : { color: "#D91414" }
-                  }
-                >
-                  {/* Style h4 object manually vs having in header tag */}
+                <div className="grid-card-container">
+                  <span
+                    style={
+                      toDo.completed
+                        ? { color: "#4e7026" }
+                        : { color: "#40689c" }
+                    }
+                  >
+                    {/* Style h4 object manually vs having in header tag */}
 
-                  <h4 title={toDo.name}>{toDo.name}</h4>
-                </p>{" "}
-                <div className="scroll">
-                  <p className="scroll">{toDo.description}</p>
+                    <span title={toDo.name}>{toDo.name}</span>
+                  </span>
+                  <div id="scroll">{toDo.description}</div>
                 </div>
                 <FontAwesomeIcon
                   id="faPencilAlt"

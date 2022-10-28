@@ -2,15 +2,18 @@ html,
 body,
 #root,
 .App {
+  background-color: #D7E8F5;
   height: 100%;
 }
 
-h4 {
+#header-title {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   margin: 2px;
   padding: 5px;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
 }
 
 p {
@@ -20,36 +23,24 @@ p {
 
 .App {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
-  background-color: #272559;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
 }
 
 .App-header {
-  background-color: #f2b705;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  font-family: "Permanent Marker", cursive;
-  color: #272559;
+  font-family: 'Quicksand', sans-serif;
+  color: #4D4A75;
 }
 
 .App-form {
-  background-color: #272559;
-  box-shadow: 10px 10px 5px black;
+  background-color: #ffc876;
+  box-shadow: 8px 8px 10px #4d4a75;
   border-radius: 5%;
   padding: 20px;
   display: flex;
@@ -59,51 +50,86 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size:1.3em;
 }
 
 .App-form > p {
-  color: white;
-  font-family: "Montserrat", sans-serif;
+  color: black;
+  font-family: 'Quicksand', sans-serif;
   margin: 5px;
   align-self: baseline;
 }
 
+
+#input-title {
+  text-align: center;
+}
+
 input,
 textarea {
-  min-width: 33%;
+  min-width: 100%;
   margin: 10px;
+  height: 50px;
+  font-family:'Source Sans Pro', sans-serif;
+  border: none;
+  resize:none;
+}
+
+.horizontal-button-pair {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 button {
-  font-family: "Permanent Marker", cursive;
-  background-color: #f2b705;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #e2e8e9;
   border-radius: 5px 5px 5px 5px;
-  box-shadow: -1px 0 8px -5px #000000;
-  font-size: 14px;
-}
-
-#cancel {
-  color: red;
+  margin: 6%;
+  font-size: .8em;
+  border: 0px;
 }
 
 #add {
   position: fixed;
+  left: 2%;
+  top: 1%;
   align-self: baseline;
   border-radius: 100%;
-  margin: 10px;
   background-color: white;
-  border: 3px solid #272559;
-  font-family: regular monospace;
-  color: #272559;
-  font-size: 40px;
+  border: 1px solid #272559;
+  font-family: 'Quicksand', sans-serif;
+  color: #4D4A75;
+  font-size: 2em;
   padding-left: 13px;
   padding-right: 13px;
   padding-top: 0px;
   padding-bottom: 3px;
+  box-shadow: 1px 1px 4px grey;
+  border: none;
+  z-index: 1;
 }
 
 #add:hover {
   cursor: pointer;
+}
+
+.grid-card-container{
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  width: 100%;
+  padding:2%;
+}
+
+.grid-card-container span {
+  padding: 2%;
+}
+
+#scroll {
+  overflow-y: auto;
+  text-align:left;
 }
 
 .App-link {
@@ -123,7 +149,7 @@ button {
   background-color: whitesmoke;
   color: #00040d;
   border-radius: 5%;
-  box-shadow: 10px 10px 5px black;
+  box-shadow: 2px 2px 10px #4d4a75;
   font-size: large;
   flex-wrap: wrap;
   height: 150px;
@@ -139,14 +165,26 @@ button {
   height: 2.2vh;
 }
 
+#faTrash:hover {
+  display: block;
+  float: right;
+  height: 2.2vh;
+  color: #40689c;
+}
+
 #faPencilAlt {
   display: block;
   float: right;
   height: 8vmin;
   position: absolute;
-  top: 140px;
+  top: 135px;
   left: 16px;
 }
+
+#faPencilAlt:hover {
+  color:#c8a672;
+}
+
 
 #faCircle {
   display: block;
@@ -155,7 +193,7 @@ button {
 }
 
 #faCircle:hover {
-  color: #27a147;
+  color: #4e7026;
   cursor: pointer;
 }
 
@@ -163,7 +201,7 @@ button {
   display: block;
   float: left;
   height: 2.2vh;
-  color: #27a147;
+  color: #4e7026;
 }
 
 #faCheckCircle:hover {
@@ -171,18 +209,25 @@ button {
 }
 
 .flex {
-  background-color: #272559;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .icon:hover {
-  color: #f2b705;
+  color: #4e7026;
   cursor: pointer;
 }
 
-.scroll {
-  overflow-y: auto;
-  height: 90%;
+@media only screen and (min-width: 800px) {
+  #header-title {
+    text-decoration-thickness: 3px;
+    font-size:1.5em;
+  }
+
+  #add {
+    left: 0%;
+    top: 0%;
+  }
 }
+
