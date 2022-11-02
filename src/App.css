@@ -12,8 +12,6 @@ body,
   overflow: hidden;
   margin: 2px;
   padding: 5px;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
 }
 
 p {
@@ -34,7 +32,7 @@ p {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Allan', cursive;
   color: #4D4A75;
 }
 
@@ -221,7 +219,6 @@ button {
 
 @media only screen and (min-width: 800px) {
   #header-title {
-    text-decoration-thickness: 3px;
     font-size:1.5em;
   }
 

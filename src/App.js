@@ -14,6 +14,7 @@ function App() {
   const [todoData, setTodoData] = useState(null);
   const [formData, setFormData] = useState({ name: "", description: "" });
   const [modalVisible, setModalVisible] = useState(false);
+  const [editing, setEditing] = useState(false);
 
   useEffect(() => {
     if (!todoData) {
@@ -24,7 +25,7 @@ function App() {
   const getToDos = async () => {
     const response = await fetch(`${API_ENDPOINT}/todo`);
     var newTodos = await response.json();
-    setTodoData(newTodos.rows);
+    setTodoData(newTodos.rows.sort((a, b) => a.completed - b.completed));
   };
 
   const handleSubmit = async (values) => {
@@ -42,7 +43,6 @@ function App() {
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(e.target.value, e.target.name);
   };
 
   const deleteTodo = async (id) => {
@@ -57,19 +57,31 @@ function App() {
     getToDos();
   };
 
-  const completeTodo = async (id, completed) => {
+  const updateTodo = async (toDo) => {
     await fetch(`${API_ENDPOINT}/todo`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: id, completed: completed }),
+      body: JSON.stringify(toDo),
     });
     getToDos();
   };
 
-  const modalDisplay = (isDisplayed) => {
+  const modalDisplay = (isDisplayed, toDo) => {
+    if (toDo) {
+      setFormData({
+        id: toDo.id,
+        name: toDo.name,
+        description: toDo.description,
+        completed: toDo.completed,
+      });
+      setEditing(true);
+    } else {
+      setFormData({ name: "", description: "" });
+      setEditing(false);
+    }
     setModalVisible(isDisplayed);
   };
 
@@ -79,11 +91,14 @@ function App() {
         +
       </button>
       <header className="App-header">
-        <h1 id="header-title">To-Do:</h1>
+        <h1 id="header-title">To-Do</h1>
       </header>
 
       {modalVisible && (
-        <form className="App-form" onSubmit={handleSubmit}>
+        <form
+          className="App-form"
+          onSubmit={editing ? () => updateTodo(formData) : handleSubmit}
+        >
           <p>Title:</p>
           <input
             value={formData.name}
@@ -97,7 +112,7 @@ function App() {
             value={formData.description}
             onChange={handleChange}
             name="description"
-            maxlength="250"
+            maxLength="250"
           ></textarea>
           <div className="horizontal-button-pair">
             <button onClick={() => modalDisplay(false)}>Cancel</button>
@@ -110,7 +125,7 @@ function App() {
         {todoData &&
           todoData.map((toDo) => {
             return (
-              <div className="toDo">
+              <div key={toDo.id} className="toDo">
                 <FontAwesomeIcon
                   id="faTrash"
                   className="icon"
@@ -121,9 +136,13 @@ function App() {
                   id={toDo.completed ? "faCheckCircle" : "faCircle"}
                   className="icon"
                   icon={toDo.completed ? faCheckCircle : faCircle}
-                  onClick={() => completeTodo(toDo.id, !toDo.completed)}
+                  onClick={() =>
+                    updateTodo(
+                      Object.assign(toDo, { completed: !toDo.completed })
+                    )
+                  }
                 />
-                {/* in p tag below -- Ensure if green text, green check and circle */}
+
                 <div className="grid-card-container">
                   <span
                     style={
@@ -132,8 +151,6 @@ function App() {
                         : { color: "#40689c" }
                     }
                   >
-                    {/* Style h4 object manually vs having in header tag */}
-
                     <span title={toDo.name}>{toDo.name}</span>
                   </span>
                   <div id="scroll">{toDo.description}</div>
@@ -142,7 +159,7 @@ function App() {
                   id="faPencilAlt"
                   className="icon"
                   icon={faPencilAlt}
-                  // onClick={() => deleteTodo(toDo.id)}
+                  onClick={() => modalDisplay(true, toDo)}
                 />
               </div>
             );
