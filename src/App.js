@@ -7,6 +7,7 @@ import {
   faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
+import { motion } from "framer-motion";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -91,34 +92,39 @@ function App() {
         +
       </button>
       <header className="App-header">
-        <h1 id="header-title">To-Do</h1>
+        <h1 id="header-title">To-Do ✍️</h1>
       </header>
 
       {modalVisible && (
-        <form
-          className="App-form"
-          onSubmit={editing ? () => updateTodo(formData) : handleSubmit}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          <p>Title:</p>
-          <input
-            value={formData.name}
-            type="text"
-            name="name"
-            onChange={handleChange}
-            id="input-title"
-          ></input>
-          <p>Notes:</p>
-          <textarea
-            value={formData.description}
-            onChange={handleChange}
-            name="description"
-            maxLength="250"
-          ></textarea>
-          <div className="horizontal-button-pair">
-            <button onClick={() => modalDisplay(false)}>Cancel</button>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+          <form
+            className="App-form"
+            onSubmit={editing ? () => updateTodo(formData) : handleSubmit}
+          >
+            <p>Title:</p>
+            <input
+              value={formData.name}
+              type="text"
+              name="name"
+              onChange={handleChange}
+              id="input-title"
+            ></input>
+            <p>Notes:</p>
+            <textarea
+              value={formData.description}
+              onChange={handleChange}
+              name="description"
+              maxLength="250"
+            ></textarea>
+            <div className="horizontal-button-pair">
+              <button onClick={() => modalDisplay(false)}>Cancel</button>
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </motion.div>
       )}
 
       <div className="flex">

@@ -4,6 +4,7 @@ body,
 .App {
   background-color: #D7E8F5;
   height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 #header-title {
@@ -12,17 +13,12 @@ body,
   overflow: hidden;
   margin: 2px;
   padding: 5px;
+  font-weight: 300;
 }
 
 p {
   margin: 2px;
   padding: 2px;
-}
-
-.App {
-  text-align: center;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 300;
 }
 
 .App-header {
@@ -31,14 +27,13 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  font-family: 'Allan', cursive;
-  color: #4D4A75;
+  font-size: 18px;
+  color: black;
 }
 
 .App-form {
   background-color: #ffc876;
-  box-shadow: 8px 8px 10px #4d4a75;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5%;
   padding: 20px;
   display: flex;
@@ -49,14 +44,14 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  font-size:1.3em;
+  font-size: 1.3em;
 }
 
-.App-form > p {
+.App-form>p {
   color: black;
-  font-family: 'Quicksand', sans-serif;
   margin: 5px;
   align-self: baseline;
+  font-size: 14px;
 }
 
 
@@ -69,9 +64,8 @@ textarea {
   min-width: 100%;
   margin: 10px;
   height: 50px;
-  font-family:'Source Sans Pro', sans-serif;
   border: none;
-  resize:none;
+  resize: none;
 }
 
 .horizontal-button-pair {
@@ -80,12 +74,21 @@ textarea {
   justify-content: space-evenly;
 }
 
+.horizontal-button-pair button {
+  transition-duration: 0.4s;
+}
+
+.horizontal-button-pair button:hover {
+  background-color: #B2AAF2;
+  color: white;
+}
+
 button {
-  font-family: 'Quicksand', sans-serif;
   background-color: #e2e8e9;
   border-radius: 5px 5px 5px 5px;
   margin: 6%;
-  font-size: .8em;
+  padding: 5px 20px;
+  font-size: 14px;
   border: 0px;
 }
 
@@ -97,28 +100,27 @@ button {
   border-radius: 100%;
   background-color: white;
   border: 1px solid #272559;
-  font-family: 'Quicksand', sans-serif;
   color: #4D4A75;
   font-size: 2em;
   padding-left: 13px;
   padding-right: 13px;
   padding-top: 0px;
   padding-bottom: 3px;
-  box-shadow: 1px 1px 4px grey;
   border: none;
   z-index: 1;
 }
 
 #add:hover {
   cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.grid-card-container{
-  display:flex;
-  flex-wrap:wrap;
+.grid-card-container {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   width: 100%;
-  padding:2%;
+  padding: 2%;
 }
 
 .grid-card-container span {
@@ -127,7 +129,7 @@ button {
 
 #scroll {
   overflow-y: auto;
-  text-align:left;
+  text-align: left;
 }
 
 .App-link {
@@ -138,6 +140,7 @@ button {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -180,7 +183,7 @@ button {
 }
 
 #faPencilAlt:hover {
-  color:#c8a672;
+  color: #c8a672;
 }
 
 
@@ -217,14 +220,40 @@ button {
   cursor: pointer;
 }
 
-@media only screen and (min-width: 800px) {
-  #header-title {
-    font-size:1.5em;
+/* tablet */
+
+@media only screen and (max-width: 850px) {
+  button:hover {
+    background-color: none;
+    color: black;
   }
 
-  #add {
-    left: 0%;
-    top: 0%;
+  #add:hover {
+    box-shadow: 0;
+  }
+
+  button {
+    transition: all .2s ease-in-out;
+  }
+
+  button:active {
+    transform: scale(1.1);
+    transition: .1s;
+  }
+
+  .horizontal-button-pair button {
+    transition: all .2s ease-in-out;
+  }
+
+  .horizontal-button-pair button:active {
+    transform: scale(1.1);
+    transition: .1s;
   }
 }
 
+/* mobile */
+@media only screen and (max-width: 500px) {
+  .App-header {
+    font-size: 16px;
+  }
+}
