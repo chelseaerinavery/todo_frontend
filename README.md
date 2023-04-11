@@ -1,3 +1,6 @@
+## To-Do
+
+Welcome to To-Do! This is a web application built with React, Express middleware, Node.js, and a MySQL database that allows users to create, manage, and prioritize their daily tasks in a colorful and engaging way.
 
 The To-Do app also includes an edit feature that allows users to modify tasks after completion, a completed feature to toggle completion of a task, as well as a delete button that allows users to remove completed tasks from the list.
 
@@ -5,11 +8,8 @@ The use of React, Express middleware, Node.js, and MySQL database make this app 
 
 We hope you find the To-Do app useful and fun to use! If you have any questions or feedback, please don't hesitate to reach out to us.
 
-## To-Do
-
-Welcome to To-Do! This is a web application built with React, Express middleware, Node.js, and a MySQL database that allows users to create, manage, and prioritize their daily tasks in a colorful and engaging way.
-
 ## Project Status
+
 Deployed at [https://todofe.onrender.com/](https://todofe.onrender.com/)
 
 ## Project Screenshot
