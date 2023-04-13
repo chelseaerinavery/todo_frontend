@@ -97,7 +97,7 @@ function App() {
 
       {modalVisible && (
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, zIndex: 2 }}
           animate={{ opacity: 1 }}
         >
           <form
@@ -125,7 +125,8 @@ function App() {
             </div>
           </form>
         </motion.div>
-      )}
+      )
+      }
 
       <div className="flex">
         {todoData &&
@@ -171,7 +172,7 @@ function App() {
             );
           })}
       </div>
-    </div>
+    </div >
   );
 }
 

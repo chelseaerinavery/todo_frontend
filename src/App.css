@@ -129,22 +129,14 @@ button {
 }
 
 #scroll {
-  overflow-y: auto;
-  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: inherit;
 }
 
 .App-link {
   color: #c9dff2;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .toDo {
@@ -175,12 +167,10 @@ button {
 }
 
 #faPencilAlt {
-  display: block;
-  float: right;
   height: 8vmin;
-  position: absolute;
-  top: 135px;
-  left: 16px;
+  position: inherit;
+  top: 20%;
+  left: 0px;
 }
 
 #faPencilAlt:hover {
@@ -253,8 +243,12 @@ button {
 }
 
 /* mobile */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .App-header {
     font-size: 16px;
+  }
+
+  #faPencilAlt {
+    top: 40%;
   }
 }
