@@ -162,12 +162,14 @@ function App() {
                   </span>
                   <div id="scroll">{toDo.description}</div>
                 </div>
-                <FontAwesomeIcon
-                  id="faPencilAlt"
-                  className="icon"
-                  icon={faPencilAlt}
-                  onClick={() => modalDisplay(true, toDo)}
-                />
+                <div className="icon-bottom-row">
+                  <FontAwesomeIcon
+                    id="faPencilAlt"
+                    className="icon"
+                    icon={faPencilAlt}
+                    onClick={() => modalDisplay(true, toDo)}
+                  />
+                </div>
               </div>
             );
           })}

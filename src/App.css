@@ -125,7 +125,7 @@ button {
 }
 
 .grid-card-container span {
-  padding: 2%;
+  padding: 0%;
 }
 
 #scroll {
@@ -144,10 +144,9 @@ button {
   color: #00040d;
   border-radius: 5%;
   box-shadow: 2px 2px 10px #4d4a75;
-  font-size: large;
   flex-wrap: wrap;
-  height: 150px;
-  width: 150px;
+  height: clamp(200px, 150px, 150px);
+  width: clamp(150px, 150px, 150px);
   padding: 20px;
   margin: 20px;
   position: relative;
@@ -163,7 +162,7 @@ button {
   display: block;
   float: right;
   height: 2.2vh;
-  color: #40689c;
+  color: #B2AAF2;
 }
 
 #faPencilAlt {
@@ -174,7 +173,7 @@ button {
 }
 
 #faPencilAlt:hover {
-  color: #c8a672;
+  color: #B2AAF2;
 }
 
 
@@ -204,6 +203,15 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.icon-bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: absolute;
+  bottom: clamp(3.5em, 1em, 3.5em)
 }
 
 .icon:hover {
