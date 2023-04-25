@@ -43,7 +43,7 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 300;
   font-size: 1.3em;
 }
 
@@ -155,18 +155,18 @@ button {
 #faTrash {
   display: block;
   float: right;
-  height: 2.2vh;
+  height: 18px;
 }
 
 #faTrash:hover {
   display: block;
   float: right;
-  height: 2.2vh;
+  height: 18px;
   color: #B2AAF2;
 }
 
 #faPencilAlt {
-  height: 8vmin;
+  height: 18px;
   position: inherit;
   top: 20%;
   left: 0px;
@@ -211,7 +211,7 @@ button {
   justify-content: flex-start;
   align-items: flex-end;
   position: absolute;
-  bottom: clamp(3.5em, 1em, 3.5em)
+  bottom: clamp(2.5em, 1em, 3.5em);
 }
 
 .icon:hover {

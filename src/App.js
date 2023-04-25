@@ -97,9 +97,11 @@ function App() {
 
       {modalVisible && (
         <motion.div
-          initial={{ opacity: 0, zIndex: 2 }}
+          style={{ zIndex: 2 }}
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
+
           <form
             className="App-form"
             onSubmit={editing ? () => updateTodo(formData) : handleSubmit}
@@ -124,7 +126,7 @@ function App() {
               <button type="submit">Submit</button>
             </div>
           </form>
-        </motion.div>
+        </motion.div >
       )
       }
 
